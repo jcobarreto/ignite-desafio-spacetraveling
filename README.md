@@ -60,7 +60,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [Y
 $ git clone https://github.com/jcobarreto/ignite-desafio-worldtrip.git
 
 # Go into the directory
-$ cd worldtrip
+$ cd ignite-desafio-worldtrip
 
 # Install dependencies
 $ yarn
