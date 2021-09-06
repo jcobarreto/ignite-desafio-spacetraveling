@@ -3,7 +3,7 @@ import { ItemTravel } from "./ItemTravel";
 
 export function TravelTypes() {
   return (
-    <Flex as="section" w="100%" justify="space-around" align="center" py="5rem" >
+    <Flex as="section" w="100%" justify="space-around" py="3rem" >
       <ItemTravel image="cocktail" label="cocktail" />
       <ItemTravel image="surf" label="surf" />
       <ItemTravel image="building" label="building" />
