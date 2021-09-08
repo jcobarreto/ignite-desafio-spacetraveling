@@ -22,7 +22,7 @@ export function SliderItem({ continent }: SliderItemProps) {
       align="center"
       bgImage={`url('${continent.callImage}')`}
     >
-      <Link href={`/continent/${continent.id}`} passHref >
+      <Link href={`/continents/${continent.id}`} passHref >
         <ChakraLink color="transparent">
           <VStack spacing={4}>
             <Heading

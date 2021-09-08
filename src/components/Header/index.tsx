@@ -1,5 +1,5 @@
 import { IoIosArrowBack } from "react-icons/io";
-import { Box, Flex, Icon, IconButton, Image, Link } from "@chakra-ui/react";
+import { Flex, Icon, IconButton, Image, Link } from "@chakra-ui/react";
 
 interface HeaderProps {
   isContinent?: boolean
@@ -17,7 +17,7 @@ export function Header({ isContinent = false }: HeaderProps) {
       bg="#FFF"
     >
       { isContinent && (
-        <Link href="/" passref>
+        <Link href="/" passhref={true}>
           <IconButton 
             aria-label="Back to home"
             icon={<Icon as={IoIosArrowBack} />}

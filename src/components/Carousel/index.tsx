@@ -2,6 +2,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { SliderItem } from "./SliderItem";
 
+// swiper bundle styles
+import 'swiper/css/bundle'
+
+// swiper core styles
+import 'swiper/css'
+
+// modules styles
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
 import { Box, Divider, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 
 import { ContinentCarouselModel } from "../../models";
@@ -26,7 +36,7 @@ export function Carousel({ continents }: CarouselProps) {
         </Heading>      
 
         <Box h="450px" w="100%" maxW={1240} mx="auto" mb="4rem">
-          <Swiper slidesPerView={1} navigation pagination>
+          <Swiper className="chuchu" slidesPerView={1} navigation pagination>
             {continents?.map((continent) => (
               <SwiperSlide key={continent.id}>
                 <SliderItem continent={continent} />
