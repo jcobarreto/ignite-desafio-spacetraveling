@@ -14,7 +14,7 @@ interface SliderItemProps {
   continent: ContinentCarouselModel;
 }
 
-export function SliderItem({ continent }: SliderItemProps) {  
+export function SliderItem({ continent }: SliderItemProps) {
   return (
     <Flex
       h="450px"

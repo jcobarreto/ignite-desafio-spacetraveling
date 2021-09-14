@@ -1,3 +1,4 @@
+import { useBreakpointValue } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { SliderItem } from "./SliderItem";
@@ -15,6 +16,7 @@ import 'swiper/css/pagination'
 import { Box, Divider, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 
 import { ContinentCarouselModel } from "../../models";
+import { fontSize } from "styled-system";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -23,20 +25,25 @@ interface CarouselProps {
 }
 
 export function Carousel({ continents }: CarouselProps) {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true
+  });
+
   return (
     <Flex as="section" direction="column" w="100%" align="center">
       <Divider w="90px" borderColor="gray.500" border="2px" />
 
       <Flex direction="column" w="100%" >
-        <Heading fontWeight="500" py="4rem" >
+        <Heading fontWeight="500" py={isWideVersion ? "6" : "14"} fontSize={isWideVersion ? "4xl" : "xl"} >
           <VStack>
             <Text >Vamos nessa?</Text>
             <Text >Então escolha seu continente</Text>
           </VStack>
         </Heading>      
 
-        <Box h="450px" w="100%" maxW={1240} mx="auto" mb="4rem">
-          <Swiper className="chuchu" slidesPerView={1} navigation pagination>
+        <Box h={["250px", "450px"]} maxW="1240" w="100%" mx="auto" mb="4rem">
+          <Swiper slidesPerView={1} loop={true} pagination={{"clickable": true}} navigation>
             {continents?.map((continent) => (
               <SwiperSlide key={continent.id}>
                 <SliderItem continent={continent} />

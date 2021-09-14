@@ -1,26 +1,30 @@
-import { IoIosArrowBack } from "react-icons/io";
-import { Flex, Icon, IconButton, Image, Link } from "@chakra-ui/react";
+import { FiChevronLeft } from "react-icons/fi";
+import { Center, Icon, IconButton, Image, Link, useBreakpointValue } from "@chakra-ui/react";
 
 interface HeaderProps {
   isContinent?: boolean
 }
 
 export function Header({ isContinent = false }: HeaderProps) {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true
+  });
+
   return (
-    <Flex 
-      as="header"
-      position="absolute"
+    <Center
       w="100%"
-      h={20}
-      justify="center"
+      h={isWideVersion ? "100" : "50"}
+      maxW={1240}
+      px={["4", "10"]}
       py="1rem"
-      bg="#FFF"
+      position="relative"
     >
       { isContinent && (
-        <Link href="/" passhref={true}>
+        <Link href="/" passHref>
           <IconButton 
             aria-label="Back to home"
-            icon={<Icon as={IoIosArrowBack} />}
+            icon={<Icon as={FiChevronLeft} fontSize={["1rem", "2rem"]}/>}
             fontSize="24"
             variant="unstyled"
             mr="2"
@@ -28,7 +32,7 @@ export function Header({ isContinent = false }: HeaderProps) {
         </Link>
       )}
 
-      <Image src="/images/logo.svg" alt="worldtrip" />
-    </Flex>
+      <Image src="/images/logo.svg" alt="worldtrip" w={!isWideVersion && "81px"}/>
+    </Center>
   );
 }

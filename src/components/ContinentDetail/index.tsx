@@ -7,11 +7,11 @@ import {
   Heading,
   Icon,
   Text,
-  Tooltip,
   SimpleGrid,
   Wrap,
   Image,
   VStack,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
 import { ContinentAboutItem } from "./ContinentAboutItem";
@@ -23,15 +23,20 @@ interface ContinentDetailProps {
 }
 
 export function ContinentDetail({ continent }: ContinentDetailProps) {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true
+  });
+
   return (
     <Flex as="section" direction="column" w="100%" maxW={1160} mx="auto">
-      <SimpleGrid columns={2} spacing="5rem" py="5rem">
+      <SimpleGrid columns={isWideVersion ? 2 : 1} spacing="5rem" py="5rem">
         <Flex w="100%" maxW="600px" align="stretch">
           <Text fontSize="1.5rem" color="gray.500">
             {continent.about}
           </Text>
         </Flex>
-        <Flex w="100%" justify="space-between" align="center">
+        <Flex w="100%" justify="space-around" align="center">
           <ContinentAboutItem number={continent.countries} label="países" />
           <ContinentAboutItem number={continent.languages} label="línguas" />
           <ContinentAboutItem
