@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { api } from "../../services/api";
 
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading, useBreakpointValue } from "@chakra-ui/react";
 
 import { Header } from "../../components/Header";
 import { ContinentDetail } from "../../components/ContinentDetail";
@@ -14,6 +14,11 @@ interface ContinentProps {
 }
 
 export default function ContinentPage({ continent }: ContinentProps) {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true
+  });
+
   return (
     <>
       <Head>
@@ -31,7 +36,7 @@ export default function ContinentPage({ continent }: ContinentProps) {
           h="500px"
           bgImage={`url('${continent.bannerImage}')`}
           justify="left"
-          align="flex-end"
+          align="flex-end"          
         >
           <Flex
             w="100%"
@@ -46,6 +51,7 @@ export default function ContinentPage({ continent }: ContinentProps) {
               fontWeight="semibold"
               fontSize="3rem"
               mb="4rem"
+              ml="1rem"
             >
               {continent.name}
             </Heading>

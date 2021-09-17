@@ -29,7 +29,7 @@ export function ContinentDetail({ continent }: ContinentDetailProps) {
   });
 
   return (
-    <Flex as="section" direction="column" w="100%" maxW={1160} mx="auto">
+    <Flex as="section" direction="column" w="100%" maxW={1160} mx="auto" m="1rem">
       <SimpleGrid columns={isWideVersion ? 2 : 1} spacing="5rem" py="5rem">
         <Flex w="100%" maxW="600px" align="stretch">
           <Text fontSize="1.5rem" color="gray.500">
